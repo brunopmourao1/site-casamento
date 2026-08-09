@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Karla, Pinyon_Script } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/ui/Header";
-import { Footer } from "@/components/ui/Footer";
-import { BarraAcoes } from "@/components/ui/BarraAcoes";
 import { evento } from "@/content/evento";
 
 // Caligráfica: só os nomes do casal e no máximo dois títulos — docs/07-DESIGN.md
@@ -60,12 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${pinyonScript.variable} ${cormorantGaramond.variable} ${karla.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col pb-16 md:pb-0">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <BarraAcoes />
-      </body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }

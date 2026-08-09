@@ -27,6 +27,7 @@ export type Evento = {
   };
   /** Fechamento do RSVP definido no cronograma (docs/08-ROADMAP.md), não depende do casal. */
   rsvpFechaEm: string;
+  rsvpFechaEmTexto: string;
 };
 
 export const evento: Evento = {
@@ -59,6 +60,7 @@ export const evento: Evento = {
     chamada: "Contamos com a sua presença!",
   },
   rsvpFechaEm: "2026-08-18T23:59:59-03:00",
+  rsvpFechaEmTexto: "18 de agosto",
 };
 
 /** "22 . 08 . 2026" — formato usado no rodapé e no painel de menu, docs/07-DESIGN.md. */

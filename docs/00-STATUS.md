@@ -13,7 +13,7 @@ Atualizado em **09/08/2026**. Leia este arquivo primeiro: ele diz o que já est�
 | Segurança e LGPD | ✅ especificada — `05-SEGURANCA-LGPD.md` |
 | Catálogo de presentes | 🟡 rascunho — falta o casal aprovar |
 | Identidade visual | ✅ **aprovada** — `07-DESIGN.md` + `mockups/` |
-| Código | 🟡 em andamento — Fase 1 completa (T01-T08), ver `09-BACKLOG.md` |
+| Código | 🟡 em andamento — Fases 1 e 2 completas (T01-T16), ver `09-BACKLOG.md` |
 | Deploy | ✅ no ar em produção — https://site-casamento-lyart.vercel.app (ainda sem domínio próprio) |
 
 ## Decisões congeladas

@@ -16,14 +16,14 @@ Tarefas na ordem de execução. Cada bloco é uma sessão de Claude Code. Marque
 
 ## Fase 2 — Formulários (D2)
 
-- [ ] **T09** `lib/validations.ts` com os schemas Zod de RSVP, recado e checkout.
-- [ ] **T10** `lib/rate-limit.ts` por IP, em memória com janela deslizante (suficiente nesta escala).
-- [ ] **T11** Turnstile: componente no cliente + verificação do token no servidor.
-- [ ] **T12** RSVP: página, formulário, Server Action com honeypot, upsert por telefone normalizado, tela de sucesso, checkbox de ciência de privacidade.
-- [ ] **T13** Mural: listar só `approved = true and hidden = false`, formulário de envio criando registro pendente, mensagem de estado vazio.
-- [ ] **T14** `middleware.ts` protegendo `/painel`; página de login com senha, cookie assinado, rate limit e comparação em tempo constante.
-- [ ] **T15** Painel — aba Confirmações: tabela, totais (confirmados, recusados, total de pessoas), busca, exportar CSV.
-- [ ] **T16** Painel — aba Recados: aprovar, ocultar, excluir.
+- [x] **T09** `lib/validations.ts` com os schemas Zod de RSVP, recado e checkout.
+- [x] **T10** `lib/rate-limit.ts` por IP, em memória com janela deslizante (suficiente nesta escala).
+- [x] **T11** Turnstile: componente no cliente + verificação do token no servidor. _(Some da tela até `NEXT_PUBLIC_TURNSTILE_SITE_KEY` ser cadastrada — conta ainda não criada.)_
+- [x] **T12** RSVP: página, formulário, Server Action com honeypot, upsert por telefone normalizado, tela de sucesso, checkbox de ciência de privacidade.
+- [x] **T13** Mural: listar só `approved = true and hidden = false`, formulário de envio criando registro pendente, mensagem de estado vazio.
+- [x] **T14** ~~`middleware.ts`~~ `proxy.ts` (Next 16 renomeou) protegendo `/painel`; página de login com senha, cookie assinado, rate limit e comparação em tempo constante.
+- [x] **T15** Painel — aba Confirmações: tabela, totais (confirmados, recusados, total de pessoas), busca, exportar CSV.
+- [x] **T16** Painel — aba Recados: aprovar, ocultar, excluir.
 
 ## Fase 3 — Presentes e checkout (D3)
 
