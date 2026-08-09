@@ -11,9 +11,9 @@ Atualizado em **09/08/2026**. Leia este arquivo primeiro: ele diz o que já est�
 | Modelo de dados | ✅ aplicado no Supabase, RLS ligado — `03-MODELO-DADOS.md` |
 | Integração de pagamento | ✅ especificada — `04-PAGAMENTOS.md` |
 | Segurança e LGPD | ✅ especificada — `05-SEGURANCA-LGPD.md` |
-| Catálogo de presentes | 🟡 rascunho — falta o casal aprovar |
+| Catálogo de presentes | 🟡 rascunho **já semeado no banco** para dar pra construir a tela — falta o casal aprovar títulos/valores antes do go-live |
 | Identidade visual | ✅ **aprovada** — `07-DESIGN.md` + `mockups/` |
-| Código | 🟡 em andamento — Fases 1 e 2 completas (T01-T16), ver `09-BACKLOG.md` |
+| Código | 🟡 em andamento — Fases 1, 2 e maior parte da 3 completas (T01-T20), ver `09-BACKLOG.md` |
 | Deploy | ✅ no ar em produção — https://site-casamento-lyart.vercel.app (ainda sem domínio próprio) |
 
 ## Decisões congeladas
@@ -34,7 +34,8 @@ Não reabrir sem motivo forte — cada uma dessas já foi discutida:
 |---|---|---|
 | Conta Mercado Pago do casal + credenciais + assinatura do webhook | Sem isso não há checkout nem webhook | hoje |
 | **Foto do hero em alta** (a atual tem 591×386 px) | Hero borrado derruba a percepção de qualidade do site inteiro | até 12/08 |
-| Lista de presentes aprovada (títulos, piadas, valores) | Não dá para semear o banco | até 11/08 |
+| Lista de presentes aprovada (títulos, piadas, valores) | O banco já tem o rascunho do doc 06 semeado (21 presentes) — dá pra usar o site, mas os textos/valores finais dependem do casal | até 11/08 |
+| **Credencial de TESTE do Mercado Pago** (`MP_ACCESS_TOKEN`) | Sem ela não dá pra testar o checkout de ponta a ponta (T20 está escrito, criação da preference não foi exercitada) | o quanto antes |
 | História do casal, dress code, horário de chegada | Conteúdo da home | até 13/08 |
 | Domínio registrado | Webhook de produção depende da URL final | até 13/08 |
 

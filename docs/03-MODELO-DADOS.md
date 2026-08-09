@@ -38,6 +38,8 @@ create table gifts (
   image_url     text,
   price_cents   integer not null check (price_cents >= 500),
   kind          text not null default 'single' check (kind in ('single','quota')),
+  -- Adicionada na T17: bloco da lista (docs/06-CONTEUDO-PRESENTES.md), usado no filtro da T18.
+  category      text check (category in ('simbolico','lua_de_mel','casa_nova','livre')),
   quota_total   integer,
   quota_sold    integer not null default 0,
   sort_order    integer not null default 0,

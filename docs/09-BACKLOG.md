@@ -27,10 +27,10 @@ Tarefas na ordem de execução. Cada bloco é uma sessão de Claude Code. Marque
 
 ## Fase 3 — Presentes e checkout (D3)
 
-- [ ] **T17** Seed do catálogo (doc 06) e `lib/money.ts` (centavos ↔ BRL).
-- [ ] **T18** Página da lista: filtro por bloco, cartão com barra de progresso nas cotas, presente único esgotado aparece marcado, não some.
-- [ ] **T19** Página de detalhe: formulário de dados do presenteador (nome, e-mail opcional, recado, mostrar meu nome), seletor de quantidade quando for cota.
-- [ ] **T20** `POST /api/checkout` implementando os 10 passos do doc 04, na ordem. Testar rejeição de preço vindo do corpo.
+- [x] **T17** Seed do catálogo (doc 06) e `lib/money.ts` (centavos ↔ BRL). _(Precisou de uma coluna nova, `gifts.category`, para o filtro por bloco da T18 — doc 03 atualizado.)_
+- [x] **T18** Página da lista: filtro por bloco, cartão com barra de progresso nas cotas, presente único esgotado aparece marcado, não some.
+- [x] **T19** Página de detalhe: formulário de dados do presenteador (nome, e-mail opcional, recado, mostrar meu nome), seletor de quantidade quando for cota.
+- [x] **T20** `POST /api/checkout` implementando os 10 passos do doc 04, na ordem. Testado: preço adulterado no corpo é ignorado (usa sempre `gift.price_cents` do banco). **Falta testar a criação real da preference** — sem `MP_ACCESS_TOKEN`, o endpoint responde 503 de forma controlada.
 - [ ] **T21** Redirect para `init_point` com estado de carregamento e tratamento de erro.
 - [ ] **T22** `/presentes/obrigado`: consulta de status a cada 3 s por até 60 s, três estados (confirmando, confirmado, algo deu errado).
 
