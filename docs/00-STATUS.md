@@ -8,12 +8,13 @@ Atualizado em **09/08/2026**. Leia este arquivo primeiro: ele diz o que já est�
 |---|---|
 | Escopo e requisitos | ✅ fechado — `01-BRIEFING.md` |
 | Arquitetura e stack | ✅ fechada — `02-ARQUITETURA.md` |
-| Modelo de dados | ✅ pronto para aplicar — `03-MODELO-DADOS.md` |
+| Modelo de dados | ✅ aplicado no Supabase, RLS ligado — `03-MODELO-DADOS.md` |
 | Integração de pagamento | ✅ especificada — `04-PAGAMENTOS.md` |
 | Segurança e LGPD | ✅ especificada — `05-SEGURANCA-LGPD.md` |
 | Catálogo de presentes | 🟡 rascunho — falta o casal aprovar |
 | Identidade visual | ✅ **aprovada** — `07-DESIGN.md` + `mockups/` |
-| Código | ⬜ não iniciado |
+| Código | 🟡 em andamento — Fase 1 completa (T01-T08), ver `09-BACKLOG.md` |
+| Deploy | ✅ no ar em produção — https://site-casamento-lyart.vercel.app (ainda sem domínio próprio) |
 
 ## Decisões congeladas
 

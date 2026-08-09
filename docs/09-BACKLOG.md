@@ -4,15 +4,15 @@ Tarefas na ordem de execução. Cada bloco é uma sessão de Claude Code. Marque
 
 ## Fase 1 — Base (D1)
 
-- [ ] **T01** `create-next-app` com TypeScript, Tailwind, App Router, ESLint. Configurar `tsconfig` estrito.
-- [ ] **T02** Tokens do doc 07 no `tailwind.config.ts` (cores nomeadas, escala de tipo) e fontes via `next/font`.
-- [ ] **T03** Projeto Supabase + rodar o SQL do doc 03 + ligar RLS. Guardar as chaves.
-- [ ] **T04** `lib/supabase/server.ts` com service role. Adicionar comentário no topo: uso exclusivo em servidor.
-- [ ] **T05** `content/evento.ts`, `content/casal.ts`, `content/faq.ts` com placeholders tipados.
-- [ ] **T06** Layout raiz: cabeçalho, rodapé com link de privacidade, barra fixa de ações no mobile, metadados e Open Graph (a prévia no WhatsApp importa mais que qualquer outra coisa aqui).
-- [ ] **T06b** Navegação: barra superior (monograma + menu, transparente sobre o hero e sólida ao rolar), painel de menu em tela cheia, versão desktop com destinos e botão de confirmar presença. Alvo visual: `mockups/08-menu.png` e `mockups/09-desktop.png`.
-- [ ] **T07** Home: hero com contagem regressiva, história, cerimônia e festa com link de mapa, FAQ em acordeão.
-- [ ] **T08** Deploy inicial na Vercel com variáveis de ambiente.
+- [x] **T01** `create-next-app` com TypeScript, Tailwind, App Router, ESLint. Configurar `tsconfig` estrito.
+- [x] **T02** Tokens do doc 07 no `tailwind.config.ts` (cores nomeadas, escala de tipo) e fontes via `next/font`. _(Next 16 veio com Tailwind v4 — tokens em `@theme` no `globals.css`, não em `tailwind.config.ts`; mesmo resultado.)_
+- [x] **T03** Projeto Supabase + rodar o SQL do doc 03 + ligar RLS. Guardar as chaves.
+- [x] **T04** `lib/supabase/server.ts` com service role. Adicionar comentário no topo: uso exclusivo em servidor.
+- [x] **T05** `content/evento.ts`, `content/casal.ts`, `content/faq.ts` com placeholders tipados.
+- [x] **T06** Layout raiz: cabeçalho, rodapé com link de privacidade, barra fixa de ações no mobile, metadados e Open Graph (a prévia no WhatsApp importa mais que qualquer outra coisa aqui).
+- [x] **T06b** Navegação: barra superior (monograma + menu, transparente sobre o hero e sólida ao rolar), painel de menu em tela cheia, versão desktop com destinos e botão de confirmar presença. Alvo visual: `mockups/08-menu.png` e `mockups/09-desktop.png`.
+- [x] **T07** Home: hero com contagem regressiva, história, cerimônia e festa com link de mapa, FAQ em acordeão.
+- [x] **T08** Deploy inicial na Vercel com variáveis de ambiente.
 
 ## Fase 2 — Formulários (D2)
 
