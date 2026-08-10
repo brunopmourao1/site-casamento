@@ -5,9 +5,14 @@ const isDev = process.env.NODE_ENV === "development";
 // docs/05-SEGURANCA-LGPD.md: CSP restritiva liberando só o necessário
 // (Turnstile). O checkout do Mercado Pago é redirect de página inteira
 // (window.location.href), não iframe/form-action — não precisa entrar na CSP.
+// 'unsafe-inline' em script-src é necessário mesmo em produção: o App Router
+// entrega o payload de RSC via <script> inline (self.__next_f.push(...)) sem
+// nonce — sem isso o navegador bloqueia a hidratação inteira (sem aviso claro
+// no console, só quebra silenciosamente). Ver node_modules/next/dist/docs/
+// .../content-security-policy.md, exemplo "Without Nonces".
 const cspHeader = `
   default-src 'self';
-  script-src 'self' https://challenges.cloudflare.com${isDev ? " 'unsafe-eval' 'unsafe-inline'" : ""};
+  script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com${isDev ? " 'unsafe-eval'" : ""};
   style-src 'self' 'unsafe-inline';
   img-src 'self' data:;
   font-src 'self';
