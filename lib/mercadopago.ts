@@ -1,5 +1,5 @@
 import "server-only";
-import { MercadoPagoConfig, Preference } from "mercadopago";
+import { MercadoPagoConfig, Preference, Payment } from "mercadopago";
 
 // Uso exclusivo em servidor — nunca importar em Client Component.
 
@@ -55,4 +55,13 @@ export async function criarPreference(params: CriarPreferenceParams) {
       expiration_date_to: new Date(Date.now() + 30 * 60_000).toISOString(),
     },
   });
+}
+
+/**
+ * Webhook (docs/04-PAGAMENTOS.md): nunca confiar no corpo da notificação —
+ * consultar o pagamento na API e usar o que ela responder.
+ */
+export async function consultarPagamento(paymentId: string) {
+  const mp = obterClienteMp();
+  return new Payment(mp).get({ id: paymentId });
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { DivisorOrnamento } from "@/components/ui/DivisorOrnamento";
 import { Moldura } from "@/components/ui/Moldura";
+import { Comprovante, type DadosComprovante } from "./Comprovante";
 
 type Estado = "confirmando" | "confirmado" | "erro";
 
@@ -22,6 +23,7 @@ const BotaoVoltar = () => (
 export function ObrigadoStatus({ orderId }: { orderId: string | null }) {
   const [estado, setEstado] = useState<Estado>(orderId ? "confirmando" : "erro");
   const [expirou, setExpirou] = useState(false);
+  const [comprovante, setComprovante] = useState<DadosComprovante | null>(null);
 
   useEffect(() => {
     if (!orderId) return;
@@ -35,7 +37,18 @@ export function ObrigadoStatus({ orderId }: { orderId: string | null }) {
         if (resposta.ok) {
           const dados = await resposta.json();
           if (dados.status === "paid") {
-            if (ativo) setEstado("confirmado");
+            if (ativo) {
+              setComprovante({
+                giftTitle: dados.giftTitle,
+                giftKind: dados.giftKind,
+                quantity: dados.quantity,
+                totalCents: dados.totalCents,
+                buyerName: dados.buyerName,
+                message: dados.message,
+                paidMethod: dados.paidMethod,
+              });
+              setEstado("confirmado");
+            }
             return;
           }
           if (["failed", "expired", "refunded"].includes(dados.status)) {
@@ -79,19 +92,8 @@ export function ObrigadoStatus({ orderId }: { orderId: string | null }) {
     );
   }
 
-  if (estado === "confirmado") {
-    return (
-      <Moldura className="mx-auto max-w-md text-center">
-        <p className="font-display text-lg uppercase tracking-widest text-sepia">
-          Presente confirmado!
-        </p>
-        <DivisorOrnamento className="my-4" />
-        <p className="font-corpo text-base text-sepia/80">
-          Muito obrigado! O casal já foi avisado.
-        </p>
-        <BotaoVoltar />
-      </Moldura>
-    );
+  if (estado === "confirmado" && comprovante) {
+    return <Comprovante dados={comprovante} />;
   }
 
   return (

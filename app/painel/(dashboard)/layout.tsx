@@ -3,6 +3,7 @@ import { sairDoPainel } from "../login/actions";
 
 const ABAS = [
   { href: "/painel/confirmacoes", label: "Confirmações" },
+  { href: "/painel/presentes", label: "Presentes" },
   { href: "/painel/recados", label: "Recados" },
 ];
 

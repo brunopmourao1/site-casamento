@@ -18,7 +18,9 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
 
   const { data: order } = await supabaseServer
     .from("orders")
-    .select("status")
+    .select(
+      "status, quantity, total_cents, buyer_name, message, paid_method, gift:gifts(title, kind)"
+    )
     .eq("id", parsed.data)
     .maybeSingle();
 
@@ -26,5 +28,20 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
     return NextResponse.json({ error: "Pedido não encontrado." }, { status: 404 });
   }
 
-  return NextResponse.json({ status: order.status });
+  if (order.status !== "paid") {
+    return NextResponse.json({ status: order.status });
+  }
+
+  // Só depois de paid é que a tela de agradecimento precisa montar o comprovante.
+  const gift = order.gift as unknown as { title: string; kind: "single" | "quota" } | null;
+  return NextResponse.json({
+    status: order.status,
+    giftTitle: gift?.title ?? "",
+    giftKind: gift?.kind ?? "single",
+    quantity: order.quantity,
+    totalCents: order.total_cents,
+    buyerName: order.buyer_name,
+    message: order.message,
+    paidMethod: order.paid_method,
+  });
 }
