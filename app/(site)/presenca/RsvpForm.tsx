@@ -125,7 +125,7 @@ export function RsvpForm() {
                 placeholder="Nomes separados por vírgula"
               />
               <p className="mt-2 font-corpo text-xs text-sepia/60">
-                Lembre-se: seu acompanhante também deve ter sido convidado pelos noivos.
+                Não é possível levar acompanhante que não foi convidado pelos noivos.
               </p>
             </Campo>
           )}

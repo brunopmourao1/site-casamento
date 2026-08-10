@@ -7,7 +7,7 @@ export const faq: FaqItem[] = [
   {
     pergunta: "Posso levar acompanhante?",
     resposta:
-      "Pode! Ao confirmar presença, informe quantos acompanhantes vêm com você. Lembre-se: seu acompanhante também precisa ter sido convidado pelos noivos.",
+      "Só se o acompanhante também tiver sido convidado pelos noivos — não é possível levar quem não recebeu convite. Ao confirmar presença, informe quantos acompanhantes convidados vêm com você.",
   },
   {
     pergunta: "Até quando posso confirmar presença?",
