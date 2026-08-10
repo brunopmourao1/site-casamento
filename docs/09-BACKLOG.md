@@ -32,7 +32,7 @@ Tarefas na ordem de execução. Cada bloco é uma sessão de Claude Code. Marque
 - [x] **T19** Página de detalhe: formulário de dados do presenteador (nome, e-mail opcional, recado, mostrar meu nome), seletor de quantidade quando for cota.
 - [x] **T20** `POST /api/checkout` implementando os 10 passos do doc 04, na ordem. Testado: preço adulterado no corpo é ignorado (usa sempre `gift.price_cents` do banco). **Falta testar a criação real da preference** — sem `MP_ACCESS_TOKEN`, o endpoint responde 503 de forma controlada.
 - [x] **T21** Redirect para `init_point` com estado de carregamento e tratamento de erro. _(Já estava implementado em `PresentearForm.tsx` desde a T19/T20 — checkbox só estava desatualizado. Confirmado no navegador: erro 503 controlado exibe "Pagamento indisponível no momento" e o botão volta ao normal.)_
-- [ ] **T22** `/presentes/obrigado`: consulta de status a cada 3 s por até 60 s, três estados (confirmando, confirmado, algo deu errado).
+- [x] **T22** `/presentes/obrigado`: consulta de status a cada 3 s por até 60 s, três estados (confirmando, confirmado, algo deu errado). _(Nova rota `GET /api/orders/[id]` só leitura, nunca escreve status. Testado no navegador: criei uma order de teste via `/api/checkout`, vi o estado "confirmando", marquei `status='paid'` direto no Supabase e confirmei a virada automática para "confirmado" no próximo poll; testei também o estado de erro sem `order` na URL. Order de teste removida depois.)_
 
 ## Fase 4 — Webhook e e-mails (D4)
 
