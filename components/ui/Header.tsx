@@ -71,7 +71,7 @@ export function Header() {
       >
         <Link
           href="/"
-          className="font-caligrafica text-2xl text-cacau md:text-3xl"
+          className="font-caligrafica text-lg text-cacau md:text-xl"
           aria-label="Início — Mayara e Jhonatan"
           onClick={() => setMenuAberto(false)}
         >

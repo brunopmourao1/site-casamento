@@ -75,12 +75,12 @@ export function Hero() {
 
       {/* Desktop: hero dividido em duas colunas */}
       <div className="relative hidden bg-linho md:grid md:min-h-[90svh] md:grid-cols-2">
-        <div className="relative flex flex-col justify-center gap-6 px-16 py-16">
+        <div className="relative flex flex-col items-center justify-center gap-6 px-16 py-16 text-center">
           <RamoEucalipto className="pointer-events-none absolute bottom-8 left-8 h-20 w-20 -scale-x-100 text-eucalipto opacity-15" />
           <p className="font-corpo text-xs uppercase tracking-widest text-sepia/70">
             {evento.convite.saudacao}
           </p>
-          <DivisorOrnamento className="justify-start" />
+          <DivisorOrnamento />
           <p className="font-caligrafica text-6xl leading-[1.1] text-sepia">
             {evento.noiva}
             <br />
@@ -89,7 +89,7 @@ export function Hero() {
             {evento.noivo}
           </p>
           <Trio
-            className="max-w-md justify-start"
+            className="max-w-md"
             columns={[
               <TrioItem key="dia" value={evento.diaMes} label={evento.mesExtenso} />,
               <TrioItem key="hora" value={evento.horario} label={evento.diaSemana} />,

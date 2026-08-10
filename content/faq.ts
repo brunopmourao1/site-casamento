@@ -10,11 +10,6 @@ export const faq: FaqItem[] = [
       "Pode! Ao confirmar presença, informe quantos acompanhantes vêm com você.",
   },
   {
-    pergunta: "O local tem sinal de celular?",
-    resposta:
-      "O Portal do Valle fica em estrada municipal e o sinal pode falhar por lá. Por isso, confirme presença e escolha o presente antes do dia do casamento.",
-  },
-  {
     pergunta: "Até quando posso confirmar presença?",
     resposta:
       "Até terça-feira, 18 de agosto — precisamos fechar o número com o buffet a tempo.",
