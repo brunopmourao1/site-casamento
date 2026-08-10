@@ -51,7 +51,7 @@ export const evento: Evento = {
     "O Portal do Valle fica em estrada municipal e o sinal de celular pode falhar por lá — confirme presença e escolha o presente antes do dia.",
   dressCode: "Esporte fino",
   convite: {
-    saudacao: "Com muita alegria, convidamos você para o nosso",
+    saudacao: "Com muita alegria, convidamos você para o nosso casamento",
     frase: "Amor, união e um novo começo",
     chamada: "Contamos com a sua presença!",
   },
