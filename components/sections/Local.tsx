@@ -22,11 +22,9 @@ export function Local() {
         Ver no mapa
       </a>
       <div className="mx-auto mt-8 max-w-sm space-y-2 font-corpo text-sm text-sepia/80">
-        <p>
-          {evento.horarioChegadaSugerido
-            ? `Chegue no máximo até as ${evento.horarioChegadaSugerido} para recepcionar os noivos.`
-            : "TODO: horário de chegada sugerido ainda não confirmado pelo casal."}
-        </p>
+        {evento.horarioChegadaSugerido && (
+          <p>{`Chegue no máximo até as ${evento.horarioChegadaSugerido} para recepcionar os noivos.`}</p>
+        )}
         <p>{evento.avisoSinalFraco}</p>
       </div>
     </section>

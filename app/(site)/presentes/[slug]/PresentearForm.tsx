@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Campo, campoInputClasses } from "@/components/ui/Campo";
 import { CampoHoneypot } from "@/components/ui/CampoHoneypot";
 import { centavosParaReais } from "@/lib/money";
@@ -151,6 +152,11 @@ export function PresentearForm({ gift }: { gift: Gift }) {
 
       <p className="text-center font-corpo text-xs text-sepia/60">
         Pix ou cartão de crédito · pagamento processado pelo Mercado Pago
+      </p>
+      <p className="text-center font-corpo text-xs text-sepia/60">
+        <Link href="/privacidade" className="underline underline-offset-4">
+          Aviso de privacidade
+        </Link>
       </p>
     </form>
   );

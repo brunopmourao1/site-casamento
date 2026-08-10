@@ -7,8 +7,7 @@ import { criarPreference } from "@/lib/mercadopago";
 
 /**
  * 10 passos do docs/04-PAGAMENTOS.md, na ordem exata.
- * TODO: não testável de ponta a ponta até MP_ACCESS_TOKEN de teste ser cadastrado
- * (docs/00-STATUS.md) — o endpoint degrada para 503 nesse caso, sem quebrar.
+ * Sem MP_ACCESS_TOKEN configurada, degrada para 503 sem quebrar (docs/00-STATUS.md).
  */
 export async function POST(request: Request) {
   // 1 e 2. Zod + rate limit por IP

@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import Link from "next/link";
 import { Campo, campoInputClasses } from "@/components/ui/Campo";
 import { CampoHoneypot } from "@/components/ui/CampoHoneypot";
 import { TurnstileWidget } from "@/components/ui/TurnstileWidget";
@@ -66,6 +67,11 @@ export function RecadoForm() {
 
       <p className="text-center font-corpo text-xs text-sepia/60">
         Seu recado aparece no mural depois que o casal ler.
+      </p>
+      <p className="text-center font-corpo text-xs text-sepia/60">
+        <Link href="/privacidade" className="underline underline-offset-4">
+          Aviso de privacidade
+        </Link>
       </p>
     </form>
   );

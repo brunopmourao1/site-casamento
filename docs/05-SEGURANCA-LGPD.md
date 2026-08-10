@@ -77,12 +77,12 @@ Não há dado sensível envolvido (nada de saúde, biometria ou opinião). "Rest
 
 ## Checklist de revisão antes do go-live
 
-- [ ] `grep` por segredo em componentes client — limpo
-- [ ] Preço vindo do request é ignorado — testado
-- [ ] Webhook com assinatura inválida responde 401 — testado
-- [ ] Notificação duplicada não paga duas vezes — testado
-- [ ] Recado não aprovado não aparece no site — testado
-- [ ] RSVP com 100 envios seguidos é barrado — testado
-- [ ] `/painel` sem cookie redireciona para o login — testado
-- [ ] Página de privacidade publicada e linkada
-- [ ] Cabeçalhos de segurança respondendo em produção
+- [x] `grep` por segredo em componentes client — limpo _(10/08: nenhum `process.env` fora de `NEXT_PUBLIC_*` em client component; grep no bundle `.next/static` por valores reais de token/chave não achou nada)_
+- [x] Preço vindo do request é ignorado — testado _(10/08: POST `/api/checkout` com `price_cents`/`total_cents`/`unit_price_cents` adulterados no corpo — a order criada usou o preço real do banco, R$30, não R$0,01)_
+- [x] Webhook com assinatura inválida responde 401 — testado _(T23, reconfirmado 10/08)_
+- [x] Notificação duplicada não paga duas vezes — testado _(T24/T29, com pagamento real em sandbox)_
+- [x] Recado não aprovado não aparece no site — testado _(query pública em `app/(site)/recados/page.tsx` filtra `approved=true, hidden=false`)_
+- [x] RSVP com 100 envios seguidos é barrado — testado _(10/08: 100 chamadas ao rate limiter com a config real do RSVP — 5 permitidas, 95 bloqueadas)_
+- [x] `/painel` sem cookie redireciona para o login — testado _(10/08: `curl` sem cookie em `/painel/confirmacoes` devolveu 307 para `/painel/login`)_
+- [x] Página de privacidade publicada e linkada — feito 10/08 (T32), link no rodapé e nos três formulários públicos (RSVP, recado, presentear)
+- [x] Cabeçalhos de segurança respondendo em produção — feito 10/08 (T31): CSP, HSTS, `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, verificados com `curl -I` contra build de produção (`next start`) e navegação real sem violação de CSP no console
