@@ -99,47 +99,87 @@ export function emailAvisoPresenteCasal(dados: DadosPresente): { subject: string
   return { subject: `Novo presente de ${dados.buyerName} 🎁`, html };
 }
 
-type NovaConfirmacao = {
+type DadosConfirmacao = {
   name: string;
   attending: boolean;
   companions: number;
+  companionNames: string | null;
+  dietaryNotes: string | null;
+  note: string | null;
+  atualizada: boolean;
 };
 
-type DadosDigest = {
-  novas: NovaConfirmacao[];
-  totalConfirmados: number;
-  totalRecusados: number;
-  totalPessoas: number;
-};
-
-export function emailDigestConfirmacoes(dados: DadosDigest): { subject: string; html: string } {
-  const linhas = dados.novas
-    .map(
-      (n) => `
-        <tr>
-          <td style="padding:8px 0;border-top:1px solid ${COR_OURO}55;">${n.name}</td>
-          <td style="padding:8px 0;border-top:1px solid ${COR_OURO}55;text-align:right;">
-            ${n.attending ? `Vai${n.companions > 0 ? ` +${n.companions}` : ""}` : "Não vai"}
-          </td>
-        </tr>`
-    )
-    .join("");
-
+export function emailNovaConfirmacaoPresenca(
+  dados: DadosConfirmacao
+): { subject: string; html: string } {
   const html = moldura(
     "📋",
-    "Confirmações das últimas 24h",
+    dados.attending ? "Confirmação de presença" : "Resposta ao convite",
     `
       <table style="width:100%;border-collapse:collapse;font-size:14px;">
-        ${linhas}
+        <tr>
+          <td style="padding:10px 0;border-top:1px solid ${COR_OURO}55;color:${COR_TEXTO}99;">Nome</td>
+          <td style="padding:10px 0;border-top:1px solid ${COR_OURO}55;text-align:right;">${dados.name}</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 0;border-top:1px solid ${COR_OURO}55;color:${COR_TEXTO}99;">Vai?</td>
+          <td style="padding:10px 0;border-top:1px solid ${COR_OURO}55;text-align:right;">${dados.attending ? "Sim" : "Não"}</td>
+        </tr>
+        ${
+          dados.attending
+            ? `<tr>
+          <td style="padding:10px 0;border-top:1px solid ${COR_OURO}55;color:${COR_TEXTO}99;">Acompanhantes</td>
+          <td style="padding:10px 0;border-top:1px solid ${COR_OURO}55;text-align:right;">${dados.companions}${dados.companionNames ? ` (${dados.companionNames})` : ""}</td>
+        </tr>`
+            : ""
+        }
+        ${
+          dados.dietaryNotes
+            ? `<tr>
+          <td style="padding:10px 0;border-top:1px solid ${COR_OURO}55;color:${COR_TEXTO}99;">Restrição</td>
+          <td style="padding:10px 0;border-top:1px solid ${COR_OURO}55;text-align:right;">${dados.dietaryNotes}</td>
+        </tr>`
+            : ""
+        }
       </table>
-      <p style="margin:20px 0 0;font-size:12px;color:${COR_ESCURO}99;">
-        Total até agora: ${dados.totalConfirmados} confirmados, ${dados.totalRecusados} recusados,
-        ${dados.totalPessoas} pessoas.
-      </p>
+      ${
+        dados.note
+          ? `<p style="margin:20px 0 0;font-size:14px;font-style:italic;color:${COR_TEXTO}cc;">“${dados.note}”</p>`
+          : ""
+      }
+      ${
+        dados.atualizada
+          ? `<p style="margin:20px 0 0;font-size:12px;color:${COR_ESCURO}99;">Essa pessoa já tinha respondido antes — isso atualiza a resposta anterior.</p>`
+          : ""
+      }
     `
   );
   return {
-    subject: `${dados.novas.length} nova(s) confirmação(ões) de presença`,
+    subject: dados.atualizada
+      ? `${dados.name} atualizou a confirmação de presença`
+      : `${dados.name} ${dados.attending ? "confirmou presença" : "avisou que não vai"}`,
     html,
   };
+}
+
+type DadosRecado = {
+  name: string;
+  body: string;
+};
+
+export function emailNovoRecado(dados: DadosRecado): { subject: string; html: string } {
+  const html = moldura(
+    "💌",
+    "Novo recado no mural",
+    `
+      <p style="margin:0 0 16px;font-size:15px;line-height:1.6;">
+        ${dados.name} deixou um recado:
+      </p>
+      <p style="margin:0;font-size:14px;font-style:italic;color:${COR_TEXTO}cc;">“${dados.body}”</p>
+      <p style="margin:24px 0 0;font-size:12px;color:${COR_ESCURO}99;">
+        Ele só aparece no mural público depois que vocês aprovarem no painel do site.
+      </p>
+    `
+  );
+  return { subject: `Novo recado de ${dados.name} 💌`, html };
 }

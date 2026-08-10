@@ -6,6 +6,8 @@ import { checkRateLimit } from "@/lib/rate-limit";
 import { verificarTurnstile } from "@/lib/turnstile";
 import { obterIp } from "@/lib/ip";
 import { supabaseServer } from "@/lib/supabase/server";
+import { enviarEmail } from "@/lib/resend";
+import { emailNovaConfirmacaoPresenca } from "@/lib/emails";
 
 export type RsvpState = {
   status: "idle" | "success" | "updated" | "error";
@@ -82,6 +84,22 @@ export async function submitRsvp(_prev: RsvpState, formData: FormData): Promise<
       status: "error",
       message: "Não deu para salvar sua confirmação agora. Tente de novo em instantes.",
     };
+  }
+
+  const casalEmail = process.env.CASAL_EMAIL;
+  if (casalEmail) {
+    await enviarEmail({
+      to: casalEmail,
+      ...emailNovaConfirmacaoPresenca({
+        name: parsed.data.name,
+        attending: parsed.data.attending,
+        companions: parsed.data.attending ? parsed.data.companions : 0,
+        companionNames: parsed.data.attending ? (parsed.data.companionNames ?? null) : null,
+        dietaryNotes: parsed.data.attending ? (parsed.data.dietaryNotes ?? null) : null,
+        note: parsed.data.note ?? null,
+        atualizada: Boolean(existente),
+      }),
+    });
   }
 
   return { status: existente ? "updated" : "success" };

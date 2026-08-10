@@ -6,6 +6,8 @@ import { checkRateLimit } from "@/lib/rate-limit";
 import { verificarTurnstile } from "@/lib/turnstile";
 import { obterIp } from "@/lib/ip";
 import { supabaseServer } from "@/lib/supabase/server";
+import { enviarEmail } from "@/lib/resend";
+import { emailNovoRecado } from "@/lib/emails";
 
 export type RecadoState = {
   status: "idle" | "success" | "error";
@@ -52,6 +54,14 @@ export async function enviarRecado(_prev: RecadoState, formData: FormData): Prom
 
   if (error) {
     return { status: "error", message: "Não deu para enviar agora. Tente de novo em instantes." };
+  }
+
+  const casalEmail = process.env.CASAL_EMAIL;
+  if (casalEmail) {
+    await enviarEmail({
+      to: casalEmail,
+      ...emailNovoRecado({ name: parsed.data.name, body: parsed.data.body }),
+    });
   }
 
   revalidatePath("/recados");
