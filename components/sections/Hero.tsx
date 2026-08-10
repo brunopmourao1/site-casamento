@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { DivisorOrnamento } from "@/components/ui/DivisorOrnamento";
-import { Moldura } from "@/components/ui/Moldura";
 import { RamoEucalipto } from "@/components/ui/RamoEucalipto";
 import { Trio, TrioItem } from "@/components/ui/Trio";
 import { casal } from "@/content/casal";
@@ -30,46 +29,44 @@ function Botoes({ className = "" }: { className?: string }) {
 export function Hero() {
   return (
     <>
-      {/* Mobile: foto de fundo com o cartão do convite sobreposto */}
-      <div className="relative min-h-[100svh] md:hidden">
-        <Image
-          src={casal.fotos.heroMobile}
-          alt="Mayara e Jhonatan"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-x-4 bottom-6">
-          <Moldura className="bg-linho/95">
-            <p className="text-center font-corpo text-xs uppercase tracking-widest text-sepia/70">
-              {evento.convite.saudacao}
-            </p>
-            <DivisorOrnamento className="my-4" />
-            <p className="text-center font-caligrafica text-4xl leading-tight text-sepia">
-              {evento.noiva}
-              <br />
-              <span className="font-corpo text-lg">e</span>
-              <br />
-              {evento.noivo}
-            </p>
-            <DivisorOrnamento className="my-4" />
-            <Trio
-              columns={[
-                <TrioItem key="dia" value={evento.diaMes} label={evento.mesExtenso} />,
-                <TrioItem key="hora" value={evento.horario} label={evento.diaSemana} />,
-                <span
-                  key="local"
-                  className="font-display text-lg leading-tight text-sepia"
-                >
-                  {evento.local.nome}
-                </span>,
-              ]}
-            />
-          </Moldura>
+      {/* Mobile: foto em seção própria — o texto nunca cobre o casal na foto */}
+      <div className="md:hidden">
+        <div className="relative h-[68svh] w-full overflow-hidden">
+          <Image
+            src={casal.fotos.heroMobile}
+            alt="Mayara e Jhonatan"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-linho" />
+        </div>
+        <div className="bg-linho px-6 pb-8 pt-2 text-center">
+          <p className="font-corpo text-xs uppercase tracking-widest text-sepia/70">
+            {evento.convite.saudacao}
+          </p>
+          <DivisorOrnamento className="my-4" />
+          <p className="font-caligrafica text-4xl leading-tight text-sepia">
+            {evento.noiva}
+            <br />
+            <span className="font-corpo text-lg">e</span>
+            <br />
+            {evento.noivo}
+          </p>
+          <DivisorOrnamento className="my-4" />
+          <Trio
+            columns={[
+              <TrioItem key="dia" value={evento.diaMes} label={evento.mesExtenso} />,
+              <TrioItem key="hora" value={evento.horario} label={evento.diaSemana} />,
+              <span key="local" className="font-display text-lg leading-tight text-sepia">
+                {evento.local.nome}
+              </span>,
+            ]}
+          />
         </div>
       </div>
-      <div className="bg-linho px-4 py-6 md:hidden">
+      <div className="bg-linho px-4 pb-6 md:hidden">
         <Botoes />
       </div>
 
