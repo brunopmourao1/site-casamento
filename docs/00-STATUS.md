@@ -13,8 +13,8 @@ Atualizado em **10/08/2026**. Leia este arquivo primeiro: ele diz o que já est�
 | Segurança e LGPD | ✅ especificada — `05-SEGURANCA-LGPD.md` |
 | Catálogo de presentes | 🟡 rascunho **já semeado no banco** para dar pra construir a tela — falta o casal aprovar títulos/valores antes do go-live |
 | Identidade visual | ✅ **aprovada** — `07-DESIGN.md` + `mockups/` |
-| Código | 🟢 Fases 1-4 completas (T01-T29). Fase 5: T31 (CSP/headers), T32 (`/privacidade`) e T34 (checklist de segurança, 9/9 itens) feitos e testados; T30 parcial (sobra o catálogo aprovado e a arte do OG, que dependem do casal). Faltam T33/T35/T36 — todos bloqueados em domínio + credencial de produção do casal, ver `09-BACKLOG.md` |
-| Deploy | ✅ no ar em produção — https://site-casamento-lyart.vercel.app (ainda sem domínio próprio) |
+| Código | 🟢 Fases 1-4 completas (T01-T29). Fase 5: T31, T32, T34 e agora T33 (menos domínio) feitos e testados; T30 parcial (sobra o catálogo aprovado e a arte do OG). Faltam T35 (pagamento real de teste, o Bruno faz) e T36 (revisão com o casal), ver `09-BACKLOG.md` |
+| Deploy | ✅ no ar em produção — https://site-casamento-lyart.vercel.app (ainda sem domínio próprio) — **checkout de produção ativo desde 10/08**, pagamento real vai para a conta do casal |
 
 ## Decisões congeladas
 
@@ -34,8 +34,8 @@ Não reabrir sem motivo forte — cada uma dessas já foi discutida:
 |---|---|---|---|
 | **Credencial de TESTE do Mercado Pago** (`MP_ACCESS_TOKEN`, começa com `TEST-`) + **chave secreta do webhook** (`MP_WEBHOOK_SECRET`) | Sem elas não dá pra testar o checkout nem começar a Fase 4 (webhook, T23-T29) | o quanto antes | ✅ resolvido em 10/08 — app de teste `858076140954340` criada na conta MP pessoal do Bruno (via MCP), webhook sandbox configurado. **Isso é só para desenvolver**; segue a pendência abaixo para produção real na conta do casal |
 | Lista de presentes aprovada (títulos, piadas, valores) | O banco já tem o rascunho do doc 06 semeado (21 presentes) — dá pra usar o site, mas os textos/valores finais dependem do casal | até 11/08 | 🔴 aguardando |
-| Domínio registrado | Webhook de produção depende da URL final | até 13/08 | 🔴 aguardando |
-| Credencial de **produção** do Mercado Pago (`APP_USR-...`) + confirmação de que a chave Pix foi cadastrada + URL de notificação do webhook cadastrada no painel MP | Necessário só para T33 (Fase 5), não bloqueia o código agora | perto do go-live (13-14/08) | 🔴 vai ser pedido ao casal na mesma conversa, depois do token de teste |
+| Domínio registrado | Webhook de produção depende da URL final (por ora usando o domínio da Vercel, que já funciona) | até 13/08 | 🔴 aguardando |
+| Credencial de **produção** do Mercado Pago (`APP_USR-...`) + confirmação de que a chave Pix foi cadastrada + URL de notificação do webhook cadastrada no painel MP | Necessário para T33 (Fase 5) | perto do go-live (13-14/08) | ✅ resolvido em 10/08 — app **Mayejhow** do casal, Bruno com acesso de colaborador no painel MP. `MP_ACCESS_TOKEN` e `MP_WEBHOOK_SECRET` de produção na Vercel, URL de notificação confirmada pelo casal, redeploy feito. Confirmação da chave Pix cadastrada continua pendente de confirmar com o casal |
 
 ## O que já está resolvido e não precisa perguntar de novo
 
