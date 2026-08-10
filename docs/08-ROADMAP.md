@@ -7,7 +7,7 @@ Casamento: **sábado, 22/08/2026**. Hoje: **09/08**.
 O site só cumpre a função se estiver no ar com antecedência: convidado precisa de tempo para confirmar, e o buffet precisa do número fechado antes. Site publicado dia 20 é um site inútil.
 
 - **Go-live: sexta, 14/08** — divulgação no grupo no mesmo dia
-- **Fechamento do RSVP: terça, 18/08** — a tempo de passar o número ao buffet
+- **Fechamento do RSVP: domingo, 16/08** — a tempo de passar o número ao buffet (confirmado pelo casal em 09/08)
 - **Lista de presentes fica no ar até 22/08** (e pode continuar depois — presente atrasado é comum)
 
 Isso dá **5 dias de desenvolvimento**. É apertado, mas cabe — desde que o D0 seja resolvido hoje.
@@ -70,7 +70,7 @@ Sem isso, o resto trava:
 | Data | O quê |
 |---|---|
 | 15–17/08 | Monitorar erros, responder dúvidas de convidado, conferir se os pagamentos estão caindo |
-| 18/08 | Lembrete de confirmação no grupo; fechar número para o buffet |
+| 16/08 | Lembrete de confirmação no grupo; fechar número para o buffet |
 | 21/08 | Exportar CSV de confirmações, recados e presentes; imprimir a lista |
 | 22/08 | Casamento. Site no ar, você não olha o celular. |
 | 23–25/08 | Conciliar total do painel com o extrato do Mercado Pago; entregar acesso ao casal |

@@ -38,7 +38,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[55%_35%]"
+          className="object-cover"
         />
         <div className="absolute inset-x-4 bottom-6">
           <Moldura className="bg-linho/95">
@@ -107,7 +107,7 @@ export function Hero() {
             fill
             priority
             sizes="50vw"
-            className="object-cover object-[55%_35%]"
+            className="object-cover"
           />
           <div className="pointer-events-none absolute inset-4 border border-ouro">
             <div className="absolute inset-[3px] border border-ouro" />

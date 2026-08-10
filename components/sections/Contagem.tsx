@@ -48,7 +48,7 @@ export function Contagem() {
         </div>
       </div>
       <p className="mt-6 text-center font-corpo text-xs uppercase tracking-widest text-sepia/70 md:mt-0 md:text-right">
-        Confirme até 18 de agosto
+        Confirme até {evento.rsvpFechaEmTexto}
       </p>
     </section>
   );

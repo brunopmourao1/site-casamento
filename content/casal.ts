@@ -5,11 +5,9 @@ export type Casal = {
   historiaTitulo: string;
   historia: string[];
   /**
-   * heroMobile/heroDesktop: foto real do casal na estrada do eucaliptal — a mesma
-   * escolhida no doc 07, agora em 1280×854px (era 591×386 no placeholder).
-   * Ainda abaixo do mínimo de 1600px no lado maior recomendado pelo doc 07 para
-   * hero em tela cheia, mas já dá para publicar.
-   * historia: recorte tratado em baixa resolução — ver assets/LEIA-ME.md.
+   * Fotos reais enviadas pelo casal em 09/08 (IMG_4232 e IMG_8012 — HEIC
+   * convertido para JPEG, 1500×2000px, acima do mínimo de 1600px no lado
+   * maior recomendado pelo doc 07).
    */
   fotos: {
     heroMobile: string;
@@ -34,6 +32,6 @@ export const casal: Casal = {
   fotos: {
     heroMobile: "/images/casal-hero.jpg",
     heroDesktop: "/images/casal-hero.jpg",
-    historia: "/images/historia-placeholder.jpg",
+    historia: "/images/casal-historia.jpg",
   },
 };

@@ -15,10 +15,10 @@ export type Evento = {
     bairro: string;
     mapaUrl: string;
   };
-  /** Rascunho do doc 01 (12h30), nunca confirmado pelo casal. TODO: confirmar antes do go-live. */
+  /** Confirmado pelo casal em 09/08: chegar até esse horário para recepcionar os noivos. */
   horarioChegadaSugerido: string | null;
   avisoSinalFraco: string;
-  /** TODO: dress code — bloqueador em docs/00-STATUS.md, casal ainda não definiu. */
+  /** Confirmado pelo casal em 09/08. */
   dressCode: string | null;
   convite: {
     saudacao: string;
@@ -44,23 +44,19 @@ export const evento: Evento = {
     nome: "Portal do Valle",
     endereco: "Estrada Municipal Benedito Antônio Regagnin, 3480",
     bairro: "Bairro dos Pontos",
-    mapaUrl:
-      "https://www.google.com/maps/search/?api=1&query=" +
-      encodeURIComponent(
-        "Portal do Valle, Estrada Municipal Benedito Antônio Regagnin, 3480, Bairro dos Pontos"
-      ),
+    mapaUrl: "https://maps.app.goo.gl/ivfTfdYyPcWhqsAC7",
   },
-  horarioChegadaSugerido: null,
+  horarioChegadaSugerido: "13h",
   avisoSinalFraco:
     "O Portal do Valle fica em estrada municipal e o sinal de celular pode falhar por lá — confirme presença e escolha o presente antes do dia.",
-  dressCode: null,
+  dressCode: "Esporte fino",
   convite: {
     saudacao: "Com muita alegria, convidamos você para o nosso",
     frase: "Amor, união e um novo começo",
     chamada: "Contamos com a sua presença!",
   },
-  rsvpFechaEm: "2026-08-18T23:59:59-03:00",
-  rsvpFechaEmTexto: "18 de agosto",
+  rsvpFechaEm: "2026-08-16T23:59:59-03:00",
+  rsvpFechaEmTexto: "16 de agosto",
 };
 
 /** "22 . 08 . 2026" — formato usado no rodapé e no painel de menu, docs/07-DESIGN.md. */

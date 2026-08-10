@@ -33,15 +33,13 @@ Não reabrir sem motivo forte — cada uma dessas já foi discutida:
 | O quê | Por quê trava | Prazo |
 |---|---|---|
 | Conta Mercado Pago do casal + credenciais + assinatura do webhook | Sem isso não há checkout nem webhook | hoje |
-| **Foto do hero em alta** (a atual, enviada pelo casal em 09/08, tem 1280×854 px) | Já publicada e bem melhor que o placeholder (591×386), mas abaixo do ideal de 1600px no lado maior | se surgir um arquivo maior |
 | Lista de presentes aprovada (títulos, piadas, valores) | O banco já tem o rascunho do doc 06 semeado (21 presentes) — dá pra usar o site, mas os textos/valores finais dependem do casal | até 11/08 |
 | **Credencial de TESTE do Mercado Pago** (`MP_ACCESS_TOKEN`) | Sem ela não dá pra testar o checkout de ponta a ponta (T20 está escrito, criação da preference não foi exercitada) | o quanto antes |
-| Dress code, horário de chegada sugerido | Aparecem como TODO na home e no FAQ até o casal decidir | até 13/08 |
 | Domínio registrado | Webhook de produção depende da URL final | até 13/08 |
 
 ## O que já está resolvido e não precisa perguntar de novo
 
-Data, horário, local e endereço vieram do convite. Grafia dos nomes: **Mayara e Jhonatan**, nessa ordem. Paleta e fontes: doc 07. Foto do hero (o casal na estrada, no eucaliptal) e a história do casal (texto enviado em 09/08, ver `mockups/historia.md`) já estão publicadas no site.
+Data, horário, local e endereço vieram do convite. Grafia dos nomes: **Mayara e Jhonatan**, nessa ordem. Paleta e fontes: doc 07. Fotos do hero e da história (IMG_4232 e IMG_8012, 1500×2000px, acima do mínimo de 1600px do doc 07), a história do casal (`mockups/historia.md`), o link do mapa, dress code (esporte fino), horário de chegada (até 13h) e o fechamento do RSVP (domingo, 16/08) — tudo confirmado pelo casal em 09/08 e já publicado no site.
 
 ## Ordem de leitura para quem chega agora
 

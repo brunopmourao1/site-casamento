@@ -124,6 +124,9 @@ export function RsvpForm() {
                 className={campoInputClasses}
                 placeholder="Nomes separados por vírgula"
               />
+              <p className="mt-2 font-corpo text-xs text-sepia/60">
+                Lembre-se: seu acompanhante também deve ter sido convidado pelos noivos.
+              </p>
             </Campo>
           )}
 
