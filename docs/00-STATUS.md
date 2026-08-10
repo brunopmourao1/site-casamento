@@ -13,7 +13,7 @@ Atualizado em **10/08/2026**. Leia este arquivo primeiro: ele diz o que já est�
 | Segurança e LGPD | ✅ especificada — `05-SEGURANCA-LGPD.md` |
 | Catálogo de presentes | ✅ **valores aprovados pelo casal em 10/08** e aplicados no banco de produção (21 presentes, nenhum abaixo de R$ 100) — `06-CONTEUDO-PRESENTES.md`. Títulos e piadas mantidos como no rascunho |
 | Identidade visual | ✅ **aprovada** — `07-DESIGN.md` + `mockups/` |
-| Código | 🟢 Fases 1-4 completas (T01-T29). Fase 5: T31, T32, T33, T34 e T35 feitos e testados; T30 parcial (só falta a arte do OG). Falta T36 (revisão com o casal), ver `09-BACKLOG.md` |
+| Código | 🟢 Fases 1-4 completas (T01-T29). Fase 5: T30-T35 completos. Falta só **T36** (revisão com o casal e publicação), ver `09-BACKLOG.md` |
 | Deploy | ✅ no ar em produção — https://jhowemayara.vercel.app (domínio final decidido pelo Bruno em 10/08: subdomínio da Vercel, sem comprar domínio próprio) — **checkout de produção ativo desde 10/08**, pagamento real vai para a conta do casal |
 
 ## Decisões congeladas
