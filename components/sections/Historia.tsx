@@ -8,7 +8,7 @@ export function Historia() {
     <section className="relative overflow-hidden bg-linho px-4 py-16 md:px-16">
       <RamoEucalipto className="pointer-events-none absolute -right-6 top-0 h-32 w-32 text-eucalipto opacity-15" />
       <h2 className="text-center font-display text-lg uppercase tracking-[0.18em] text-sepia">
-        Nossa história
+        {casal.historiaTitulo}
       </h2>
       <DivisorOrnamento className="mb-10 mt-4" />
       <div className="mx-auto max-w-md">

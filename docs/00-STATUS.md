@@ -33,15 +33,15 @@ Não reabrir sem motivo forte — cada uma dessas já foi discutida:
 | O quê | Por quê trava | Prazo |
 |---|---|---|
 | Conta Mercado Pago do casal + credenciais + assinatura do webhook | Sem isso não há checkout nem webhook | hoje |
-| **Foto do hero em alta** (a atual tem 591×386 px) | Hero borrado derruba a percepção de qualidade do site inteiro | até 12/08 |
+| **Foto do hero em alta** (a atual, enviada pelo casal em 09/08, tem 1280×854 px) | Já publicada e bem melhor que o placeholder (591×386), mas abaixo do ideal de 1600px no lado maior | se surgir um arquivo maior |
 | Lista de presentes aprovada (títulos, piadas, valores) | O banco já tem o rascunho do doc 06 semeado (21 presentes) — dá pra usar o site, mas os textos/valores finais dependem do casal | até 11/08 |
 | **Credencial de TESTE do Mercado Pago** (`MP_ACCESS_TOKEN`) | Sem ela não dá pra testar o checkout de ponta a ponta (T20 está escrito, criação da preference não foi exercitada) | o quanto antes |
-| História do casal, dress code, horário de chegada | Conteúdo da home | até 13/08 |
+| Dress code, horário de chegada sugerido | Aparecem como TODO na home e no FAQ até o casal decidir | até 13/08 |
 | Domínio registrado | Webhook de produção depende da URL final | até 13/08 |
 
 ## O que já está resolvido e não precisa perguntar de novo
 
-Data, horário, local e endereço vieram do convite. Grafia dos nomes: **Mayara e Jhonatan**, nessa ordem. Paleta e fontes: doc 07. Foto do hero escolhida: o casal na estrada, no eucaliptal — falta só a versão em alta.
+Data, horário, local e endereço vieram do convite. Grafia dos nomes: **Mayara e Jhonatan**, nessa ordem. Paleta e fontes: doc 07. Foto do hero (o casal na estrada, no eucaliptal) e a história do casal (texto enviado em 09/08, ver `mockups/historia.md`) já estão publicadas no site.
 
 ## Ordem de leitura para quem chega agora
 
