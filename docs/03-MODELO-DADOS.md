@@ -90,7 +90,7 @@ create table payments (
 -- === IDEMPOTÊNCIA DO WEBHOOK ===
 create table webhook_events (
   id           uuid primary key default gen_random_uuid(),
-  mp_id        text not null unique,   -- data.id da notificação
+  mp_id        text not null unique,   -- "data.id:status" (docs/04, seção Idempotência) — não só data.id
   received_at  timestamptz not null default now(),
   processed    boolean not null default false,
   raw          jsonb

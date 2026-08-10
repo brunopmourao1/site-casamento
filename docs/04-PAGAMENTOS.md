@@ -130,7 +130,7 @@ const info = await new Payment(mp).get({ id: paymentId });
 
 ### 3. Idempotência
 
-O Mercado Pago reenvia notificação. Grave `data.id` em `webhook_events` com índice único e trate duplicata como sucesso (responda 200 e saia). Marcar como pago duas vezes incrementaria a cota duas vezes.
+O Mercado Pago reenvia notificação, **e também notifica de novo quando o status do mesmo pagamento muda** (Pix: primeiro `pending_waiting_transfer`, depois `approved` — mesmo `data.id` nas duas). Por isso a chave de idempotência não pode ser só `data.id`: tem que ser `data.id` + o status observado na consulta à API (`${dataId}:${payment.status}`). Grave essa chave em `webhook_events` com índice único e trate duplicata (mesmo `data.id` **e** mesmo status) como sucesso (responda 200 e saia). Deduplicar só por `data.id` descarta a notificação de aprovação como "duplicata" da de criação — a order nunca sai de `pending` mesmo com o dinheiro já creditado. Isso aconteceu de verdade em teste com Pix real (10/08/2026) antes da correção.
 
 ### 4. Conferir o valor
 

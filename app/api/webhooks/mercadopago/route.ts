@@ -49,10 +49,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ received: true });
   }
 
-  // T24. Idempotência: data.id único em webhook_events. Duplicata = sucesso, sai.
+  // T25. Nunca confiar no corpo da notificação — consultar o pagamento na API.
+  const payment = await consultarPagamento(dataId);
+
+  // T24. Idempotência: a chave inclui o status observado, não só o data.id.
+  // Um mesmo pagamento gera várias notificações ao longo da vida (Pix:
+  // pending_waiting_transfer -> approved, por exemplo) — todas com o mesmo
+  // data.id. Deduplicar só por data.id descartaria a transição de aprovação
+  // como "duplicata" da de criação, e a order nunca sairia de pending mesmo
+  // com o dinheiro já creditado (bug real, achado em teste com dinheiro de
+  // verdade em 10/08: Pix caiu na conta do casal e a order ficou pending).
+  const chaveEvento = `${dataId}:${payment.status ?? "unknown"}`;
   const { error: erroEvento } = await supabaseServer
     .from("webhook_events")
-    .insert({ mp_id: dataId, raw: corpo });
+    .insert({ mp_id: chaveEvento, raw: corpo });
 
   if (erroEvento) {
     if (erroEvento.code === CODIGO_VIOLACAO_UNICA) {
@@ -60,9 +70,6 @@ export async function POST(request: Request) {
     }
     throw erroEvento;
   }
-
-  // T25. Nunca confiar no corpo da notificação — consultar o pagamento na API.
-  const payment = await consultarPagamento(dataId);
 
   const orderId = payment.external_reference;
   if (!orderId) {
