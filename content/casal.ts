@@ -4,8 +4,11 @@ export type Casal = {
   /** TODO: texto real do casal — bloqueador em docs/00-STATUS.md. Até 5 linhas, tom acolhedor. */
   historia: string[];
   /**
-   * Recortes tratados em baixa resolução — ver assets/LEIA-ME.md.
-   * TODO: substituir pelo arquivo original em alta (mín. 1600px no lado maior) antes do go-live.
+   * heroMobile/heroDesktop: foto real do casal na estrada do eucaliptal — a mesma
+   * escolhida no doc 07, agora em 1280×854px (era 591×386 no placeholder).
+   * Ainda abaixo do mínimo de 1600px no lado maior recomendado pelo doc 07 para
+   * hero em tela cheia, mas já dá para publicar.
+   * historia: recorte tratado em baixa resolução — ver assets/LEIA-ME.md.
    */
   fotos: {
     heroMobile: string;
@@ -21,8 +24,8 @@ export const casal: Casal = {
     "TODO: história do casal — aguardando texto do casal (docs/00-STATUS.md).",
   ],
   fotos: {
-    heroMobile: "/images/hero-placeholder.jpg",
-    heroDesktop: "/images/hero-desktop-placeholder.jpg",
+    heroMobile: "/images/casal-hero.jpg",
+    heroDesktop: "/images/casal-hero.jpg",
     historia: "/images/historia-placeholder.jpg",
   },
 };

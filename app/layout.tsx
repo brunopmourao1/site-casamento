@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     description: descricao,
     url: "/",
     siteName: titulo,
-    // TODO: trocar pela arte final do cartão de convite — hoje é o placeholder de baixa resolução.
-    images: ["/images/hero-placeholder.jpg"],
+    // TODO: trocar pela arte final do cartão de convite quando estiver pronta.
+    images: ["/images/casal-hero.jpg"],
     locale: "pt_BR",
     type: "website",
   },
